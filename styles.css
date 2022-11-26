@@ -11,3 +11,16 @@ h1{
     text-align: center;
     color: red;
 }
+h2{
+    text-align: center;
+    color: green;
+    font-size: 2em;
+}
+
+footer{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    color: dimgrey;
+}
