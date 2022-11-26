@@ -19,10 +19,16 @@ h2{
 .enigma{
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
 }
 h4{
     margin-right: 0.5em;
+}
+.finished{
+    height: 2.5em;
+}
+.not-finished{
+    height: 2.5em;
 }
 footer{
     display: flex;

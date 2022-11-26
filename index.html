@@ -19,11 +19,17 @@
         <h2>Enigmas Race !</h2>
     </header>
     <main>
-        <div class="enigma">
+        <div class="enigma" id="enigma1">
             <h4>Enigma 1: </h4>
-            <label for="password1">Answer:</label>
-            <input type="password1" id="password1" name="password1" />
-            <button type="button" onclick="checkPassword1()">Submit</button>
+            <div class="input">
+                <label for="password1">Answer:</label>
+                <input type="password1" id="password1" name="password1" />
+                <button type="button" onclick="checkPassword1()">Submit</button>
+            </div>
+            <div class="status">
+                <img src="checked.svg" class="finished" id="enigma1-check">
+                <img src="not_checked.svg" class="not-finished" id="enigma1-no-check">
+            </div>
         </div>
     </main>
     <footer>
