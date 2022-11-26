@@ -16,7 +16,14 @@ h2{
     color: green;
     font-size: 2em;
 }
-
+.enigma{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+h4{
+    margin-right: 0.5em;
+}
 footer{
     display: flex;
     position: absolute;
