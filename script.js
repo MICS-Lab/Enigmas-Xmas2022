@@ -55,3 +55,22 @@ function checkPassword2() {
 
 checkPassword2();
 
+
+function checkPassword3() {
+  var password = document.getElementById("password3").value;
+  var sha_password = SHA256(password.toLowerCase().replace(/ /g, '').replace("'", ''));
+  if (
+    sha_password ==
+    "54acfadf2c86190a1db8e2ac5d0506ae66dd3fe794068e87c6df53fc5370fc31"
+  ) {
+    document.getElementById("enigma3-check").style = "display: block";
+    document.getElementById("enigma3-no-check").style = "display: none";
+  } else {
+    document.getElementById("enigma3-no-check").style = "display: block";
+    document.getElementById("enigma3-check").style = "display: none";
+    document.getElementById("password3").value = "";
+  }
+}
+
+checkPassword3();
+
