@@ -1,1 +1,4 @@
 data.yaml
+enigmas/*.log
+enigmas/*.gz
+enigmas/*.aux
