@@ -53,7 +53,7 @@ for enigma in data['enigmas']:
     script += f"""
 function checkPassword{enigma['id']}() {{
   var password = document.getElementById("password{enigma['id']}").value;
-  var sha_password = SHA256(password);
+  var sha_password = SHA256(password.toLowerCase().replace(/ /g, '').replace("'", ''));
   if (
     sha_password ==
     "{m.hexdigest()}"
