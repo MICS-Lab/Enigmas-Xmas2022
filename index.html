@@ -20,7 +20,7 @@
     </header>
     <main>
         <div class="enigma" id="enigma1">
-            <h4>Enigma 1: </h4>
+            <h4>Enigma 1</h4>
             <div class="input">
                 <label for="password1">Answer:</label>
                 <input type="password1" id="password1" name="password1" />
@@ -31,7 +31,20 @@
                 <img src="not_checked.svg" class="not-finished" id="enigma1-no-check">
             </div>
         </div>
-    </main>
+    
+        <div class="enigma" id="enigma2">
+            <h4>Enigma 2</h4>
+            <div class="input">
+                <label for="password2">Answer:</label>
+                <input type="password2" id="password2" name="password2" />
+                <button type="button" onclick="checkPassword2()">Submit</button>
+            </div>
+            <div class="status">
+                <img src="checked.svg" class="finished" id="enigma2-check">
+                <img src="not_checked.svg" class="not-finished" id="enigma2-no-check">
+            </div>
+        </div>
+        </main>
     <footer>
         <p>© 2022 MICS Lab</p>
     </footer>
