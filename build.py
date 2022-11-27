@@ -16,11 +16,6 @@ with open("parts/index_bottom.html", 'r') as f:
 
 middle = ""
 for enigma in data['enigmas']:
-    print(enigma)
-    m = hashlib.sha256()
-    m.update(enigma['answer'].encode('utf8'))
-    m.digest()
-    print(m.hexdigest())
     middle += f"""
         <div class="enigma" id="enigma{enigma['id']}">
             <h4>{enigma['name']}</h4>
@@ -45,11 +40,9 @@ with open("index.html", 'w') as f:
 
 script = ""
 for enigma in data['enigmas']:
-    print(enigma)
     m = hashlib.sha256()
-    m.update(enigma['answer'].encode('utf8'))
+    m.update(str(enigma['answer']).encode('utf8'))
     m.digest()
-    print(m.hexdigest())
     script += f"""
 function checkPassword{enigma['id']}() {{
   var password = document.getElementById("password{enigma['id']}").value;

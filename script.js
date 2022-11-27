@@ -4,7 +4,7 @@ function checkPassword1() {
   var sha_password = SHA256(password.toLowerCase().replace(/ /g, '').replace("'", ''));
   if (
     sha_password ==
-    "8b7df143d91c716ecfa5fc1730022f6b421b05cedee8fd52b1fc65a96030ad52"
+    "cccfd8fc53f19887ebe3c5aa24270b76d0fc6760ec5de84110375a932974ab2f"
   ) {
     document.getElementById("enigma1-check").style = "display: block";
     document.getElementById("enigma1-no-check").style = "display: none";
@@ -23,7 +23,7 @@ function checkPassword2() {
   var sha_password = SHA256(password.toLowerCase().replace(/ /g, '').replace("'", ''));
   if (
     sha_password ==
-    "b00c935bfca0df33d60ffbc391ecfd2a9dd7be9366079f54940d947443e2fe04"
+    "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
   ) {
     document.getElementById("enigma2-check").style = "display: block";
     document.getElementById("enigma2-no-check").style = "display: none";
@@ -35,4 +35,23 @@ function checkPassword2() {
 }
 
 checkPassword2();
+
+
+function checkPassword3() {
+  var password = document.getElementById("password3").value;
+  var sha_password = SHA256(password.toLowerCase().replace(/ /g, '').replace("'", ''));
+  if (
+    sha_password ==
+    "7902699be42c8a8e46fbbb4501726517e86b22c56a189f7625a6da49081b2451"
+  ) {
+    document.getElementById("enigma3-check").style = "display: block";
+    document.getElementById("enigma3-no-check").style = "display: none";
+  } else {
+    document.getElementById("enigma3-no-check").style = "display: block";
+    document.getElementById("enigma3-check").style = "display: none";
+    document.getElementById("password3").value = "";
+  }
+}
+
+checkPassword3();
 
