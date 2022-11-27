@@ -1,0 +1,9 @@
+enigmas:
+  - answer: blah
+    description: Enigma 1 description
+    id: 1
+    name: Enigma 1
+  - answer: bleh
+    description: Enigma 2 description
+    id: 2
+    name: Enigma 2
