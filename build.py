@@ -15,18 +15,18 @@ with open("parts/index_bottom.html", 'r') as f:
     bottom = f.read()
 
 middle = ""
-for enigma in data['enigmas']:
+for i,enigma in enumerate(data['enigmas']):
     middle += f"""
-        <div class="enigma" id="enigma{enigma['id']}">
+        <div class="enigma" id="enigma{i}">
             <h4>{enigma['name']}</h4>
             <div class="input">
-                <label for="password{enigma['id']}">Answer:</label>
-                <input type="password{enigma['id']}" id="password{enigma['id']}" name="password{enigma['id']}" />
-                <button type="button" onclick="checkPassword{enigma['id']}()">Submit</button>
+                <label for="password{i}">Answer:</label>
+                <input type="password{i}" id="password{i}" name="password{i}" />
+                <button type="button" onclick="checkPassword{i}()">Submit</button>
             </div>
             <div class="status">
-                <img src="checked.svg" class="finished" id="enigma{enigma['id']}-check">
-                <img src="not_checked.svg" class="not-finished" id="enigma{enigma['id']}-no-check">
+                <img src="checked.svg" class="finished" id="enigma{i}-check">
+                <img src="not_checked.svg" class="not-finished" id="enigma{i}-no-check">
             </div>
         </div>
     """
@@ -39,28 +39,28 @@ with open("index.html", 'w') as f:
 ################################ script.js ################################
 
 script = ""
-for enigma in data['enigmas']:
+for i,enigma in enumerate(data['enigmas']):
     m = hashlib.sha256()
     m.update(str(enigma['answer']).encode('utf8'))
     m.digest()
     script += f"""
-function checkPassword{enigma['id']}() {{
-  var password = document.getElementById("password{enigma['id']}").value;
+function checkPassword{i}() {{
+  var password = document.getElementById("password{i}").value;
   var sha_password = SHA256(password.toLowerCase().replace(/ /g, '').replace("'", ''));
   if (
     sha_password ==
     "{m.hexdigest()}"
   ) {{
-    document.getElementById("enigma{enigma['id']}-check").style = "display: block";
-    document.getElementById("enigma{enigma['id']}-no-check").style = "display: none";
+    document.getElementById("enigma{i}-check").style = "display: block";
+    document.getElementById("enigma{i}-no-check").style = "display: none";
   }} else {{
-    document.getElementById("enigma{enigma['id']}-no-check").style = "display: block";
-    document.getElementById("enigma{enigma['id']}-check").style = "display: none";
-    document.getElementById("password{enigma['id']}").value = "";
+    document.getElementById("enigma{i}-no-check").style = "display: block";
+    document.getElementById("enigma{i}-check").style = "display: none";
+    document.getElementById("password{i}").value = "";
   }}
 }}
 
-checkPassword{enigma['id']}();
+checkPassword{i}();
 
 """
 
