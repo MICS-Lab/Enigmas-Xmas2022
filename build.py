@@ -39,3 +39,37 @@ for enigma in data['enigmas']:
 full = top + middle + bottom
 with open("index.html", 'w') as f:
     f.write(full)
+
+
+################################ script.js ################################
+
+script = ""
+for enigma in data['enigmas']:
+    print(enigma)
+    m = hashlib.sha256()
+    m.update(enigma['answer'].encode('utf8'))
+    m.digest()
+    print(m.hexdigest())
+    script += f"""
+function checkPassword{enigma['id']}() {{
+  var password = document.getElementById("password{enigma['id']}").value;
+  var sha_password = SHA256(password);
+  if (
+    sha_password ==
+    "{m.hexdigest()}"
+  ) {{
+    document.getElementById("enigma{enigma['id']}-check").style = "display: block";
+    document.getElementById("enigma{enigma['id']}-no-check").style = "display: none";
+  }} else {{
+    document.getElementById("enigma{enigma['id']}-no-check").style = "display: block";
+    document.getElementById("enigma{enigma['id']}-check").style = "display: none";
+    document.getElementById("password{enigma['id']}").value = "";
+  }}
+}}
+
+checkPassword{enigma['id']}();
+
+"""
+
+with open("script.js", 'w') as f:
+    f.write(script)
