@@ -44,7 +44,7 @@ with open("index.html", 'w') as f:
 script = ""
 for i, enigma in enumerate(data['enigmas']):
     m = hashlib.sha256()
-    m.update(str(enigma['answer']).encode('utf8'))
+    m.update(str(enigma['answer']).replace(' ', '').replace("'", '').encode('utf8'))
     m.digest()
     script += f"""
 function checkPassword{i}() {{
