@@ -74,3 +74,22 @@ function checkPassword3() {
 
 checkPassword3();
 
+
+function checkPassword4() {
+  var password = document.getElementById("password4").value;
+  var sha_password = SHA256(password.toLowerCase().replace(/ /g, '').replace("'", ''));
+  if (
+    sha_password ==
+    "81a83544cf93c245178cbc1620030f1123f435af867c79d87135983c52ab39d9"
+  ) {
+    document.getElementById("enigma4-check").style = "display: block";
+    document.getElementById("enigma4-no-check").style = "display: none";
+  } else {
+    document.getElementById("enigma4-no-check").style = "display: block";
+    document.getElementById("enigma4-check").style = "display: none";
+    document.getElementById("password4").value = "";
+  }
+}
+
+checkPassword4();
+
