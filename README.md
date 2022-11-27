@@ -1,4 +1,4 @@
-# Enigmas-Xmas2022
+# Enigmas for the MICS Xmas 2022 Event
 
 A series of enigmas for the lab 2022 Xmas event.
 
