@@ -18,6 +18,11 @@ h2{
 }
 .enigma{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title{
+    display: flex;
     flex-direction: row;
     align-items: center;
 }
