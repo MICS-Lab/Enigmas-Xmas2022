@@ -13,6 +13,7 @@ function checkPassword0() {
     document.getElementById("enigma0-check").style = "display: none";
     document.getElementById("password0").value = "";
   }
+  final_code();
 }
 
 checkPassword0();
@@ -32,6 +33,7 @@ function checkPassword1() {
     document.getElementById("enigma1-check").style = "display: none";
     document.getElementById("password1").value = "";
   }
+  final_code();
 }
 
 checkPassword1();
@@ -51,6 +53,7 @@ function checkPassword2() {
     document.getElementById("enigma2-check").style = "display: none";
     document.getElementById("password2").value = "";
   }
+  final_code();
 }
 
 checkPassword2();
@@ -70,6 +73,7 @@ function checkPassword3() {
     document.getElementById("enigma3-check").style = "display: none";
     document.getElementById("password3").value = "";
   }
+  final_code();
 }
 
 checkPassword3();
@@ -89,6 +93,7 @@ function checkPassword4() {
     document.getElementById("enigma4-check").style = "display: none";
     document.getElementById("password4").value = "";
   }
+  final_code();
 }
 
 checkPassword4();
@@ -108,6 +113,7 @@ function checkPassword5() {
     document.getElementById("enigma5-check").style = "display: none";
     document.getElementById("password5").value = "";
   }
+  final_code();
 }
 
 checkPassword5();
@@ -127,6 +133,7 @@ function checkPassword6() {
     document.getElementById("enigma6-check").style = "display: none";
     document.getElementById("password6").value = "";
   }
+  final_code();
 }
 
 checkPassword6();
@@ -146,6 +153,7 @@ function checkPassword7() {
     document.getElementById("enigma7-check").style = "display: none";
     document.getElementById("password7").value = "";
   }
+  final_code();
 }
 
 checkPassword7();
@@ -165,6 +173,7 @@ function checkPassword8() {
     document.getElementById("enigma8-check").style = "display: none";
     document.getElementById("password8").value = "";
   }
+  final_code();
 }
 
 checkPassword8();
@@ -184,6 +193,7 @@ function checkPassword9() {
     document.getElementById("enigma9-check").style = "display: none";
     document.getElementById("password9").value = "";
   }
+  final_code();
 }
 
 checkPassword9();
