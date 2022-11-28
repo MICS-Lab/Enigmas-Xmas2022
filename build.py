@@ -32,7 +32,8 @@ for i, enigma in enumerate(data['enigmas']):
                 <img src="not_checked.svg" class="not-finished" id="enigma{i}-no-check">
             </div>
         </div>
-    """
+
+"""
 
 full = top + middle + bottom
 with open("index.html", 'w') as f:
@@ -44,7 +45,8 @@ with open("index.html", 'w') as f:
 script = ""
 for i, enigma in enumerate(data['enigmas']):
     m = hashlib.sha256()
-    m.update(str(enigma['answer']).replace(' ', '').replace("'", '').encode('utf8'))
+    m.update(str(enigma['answer']).replace(
+        ' ', '').replace("'", '').encode('utf8'))
     m.digest()
     script += f"""
 function checkPassword{i}() {{
@@ -61,6 +63,7 @@ function checkPassword{i}() {{
     document.getElementById("enigma{i}-check").style = "display: none";
     document.getElementById("password{i}").value = "";
   }}
+  final_code();
 }}
 
 checkPassword{i}();
@@ -68,4 +71,35 @@ checkPassword{i}();
 """
 
 with open("script.js", 'w') as f:
+    f.write(script)
+
+
+################################ finish_script.js ################################
+
+
+script = """function final_code() {
+  var password =
+"""
+for i in range(len(data['enigmas'])-1):
+    script += f"""    document.getElementById("password{i}").value + \n"""
+script += f"""    document.getElementById("password{len(data['enigmas'])-1}").value;\n"""
+script += """
+  var sha_password = SHA256(
+    password.toLowerCase().replace(/ /g, "").replace("'", "")
+  );
+  var user_code = sha_password.substring(0, 8).toUpperCase();
+  if (
+    SHA256(user_code) ==
+    "f2ce47ae929e9a00570c6473e571b7cad1865b362db6bbd0ed523347d9cb003a"
+  ) {
+    document.getElementById("finish-code").innerHTML =
+      'Finish code: <span id="code">' + user_code + "</span>";
+  } else {
+    document.getElementById("finish-code").innerHTML = "";
+  }
+}
+"""
+
+
+with open("finish_script.js", 'w') as f:
     f.write(script)
