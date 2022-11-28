@@ -169,3 +169,22 @@ function checkPassword8() {
 
 checkPassword8();
 
+
+function checkPassword9() {
+  var password = document.getElementById("password9").value;
+  var sha_password = SHA256(password.toLowerCase().replace(/ /g, '').replace("'", ''));
+  if (
+    sha_password ==
+    "fabb8fa5aa1bf3e667e208cf1967ee0e9ce8d1af2897b6a576174130aa2130fe"
+  ) {
+    document.getElementById("enigma9-check").style = "display: block";
+    document.getElementById("enigma9-no-check").style = "display: none";
+  } else {
+    document.getElementById("enigma9-no-check").style = "display: block";
+    document.getElementById("enigma9-check").style = "display: none";
+    document.getElementById("password9").value = "";
+  }
+}
+
+checkPassword9();
+
