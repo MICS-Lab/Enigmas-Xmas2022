@@ -150,3 +150,22 @@ function checkPassword7() {
 
 checkPassword7();
 
+
+function checkPassword8() {
+  var password = document.getElementById("password8").value;
+  var sha_password = SHA256(password.toLowerCase().replace(/ /g, '').replace("'", ''));
+  if (
+    sha_password ==
+    "3cb968a982080be1d7a5df98dc49673a8c052d2642ef7730b7753cee5b87c3dd"
+  ) {
+    document.getElementById("enigma8-check").style = "display: block";
+    document.getElementById("enigma8-no-check").style = "display: none";
+  } else {
+    document.getElementById("enigma8-no-check").style = "display: block";
+    document.getElementById("enigma8-check").style = "display: none";
+    document.getElementById("password8").value = "";
+  }
+}
+
+checkPassword8();
+
