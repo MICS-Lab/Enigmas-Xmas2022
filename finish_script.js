@@ -9,7 +9,8 @@ function final_code() {
     document.getElementById("password6").value + 
     document.getElementById("password7").value + 
     document.getElementById("password8").value + 
-    document.getElementById("password9").value;
+    document.getElementById("password9").value + 
+    document.getElementById("password10").value;
 
   var sha_password = SHA256(
     password.toLowerCase().replace(/ /g, "").replace("'", "")

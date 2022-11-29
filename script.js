@@ -198,3 +198,23 @@ function checkPassword9() {
 
 checkPassword9();
 
+
+function checkPassword10() {
+  var password = document.getElementById("password10").value;
+  var sha_password = SHA256(password.toLowerCase().replace(/ /g, '').replace("'", ''));
+  if (
+    sha_password ==
+    "5552c3489bf697c3f025f900854d2e537378af7b9fea4590de04a3f1ad2ffc6e"
+  ) {
+    document.getElementById("enigma10-check").style = "display: block";
+    document.getElementById("enigma10-no-check").style = "display: none";
+  } else {
+    document.getElementById("enigma10-no-check").style = "display: block";
+    document.getElementById("enigma10-check").style = "display: none";
+    document.getElementById("password10").value = "";
+  }
+  final_code();
+}
+
+checkPassword10();
+
