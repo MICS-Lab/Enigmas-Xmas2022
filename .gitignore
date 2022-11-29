@@ -2,3 +2,4 @@ data.yaml
 enigmas/*.log
 enigmas/*.gz
 enigmas/*.aux
+enigmas/*.out
