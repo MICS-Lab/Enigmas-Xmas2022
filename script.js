@@ -218,3 +218,23 @@ function checkPassword10() {
 
 checkPassword10();
 
+
+function checkPassword11() {
+  var password = document.getElementById("password11").value;
+  var sha_password = SHA256(password.toLowerCase().replace(/ /g, '').replace("'", ''));
+  if (
+    sha_password ==
+    "46bdc56266eeb01a426c3c2bedbaaedd8885d7b5081afd15401930e61957cd96"
+  ) {
+    document.getElementById("enigma11-check").style = "display: block";
+    document.getElementById("enigma11-no-check").style = "display: none";
+  } else {
+    document.getElementById("enigma11-no-check").style = "display: block";
+    document.getElementById("enigma11-check").style = "display: none";
+    document.getElementById("password11").value = "";
+  }
+  final_code();
+}
+
+checkPassword11();
+
