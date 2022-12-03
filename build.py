@@ -42,11 +42,14 @@ with open("index.html", 'w') as f:
 
 ################################ script.js ################################
 
+sum_answers = ""
 script = ""
 for i, enigma in enumerate(data['enigmas']):
     m = hashlib.sha256()
     m.update(str(enigma['answer']).replace(
         ' ', '').replace("'", '').encode('utf8'))
+    sum_answers += str(enigma['answer'])\
+        .replace(' ', '').replace("'", '')
     m.digest()
     script += f"""
 function checkPassword{i}() {{
@@ -76,28 +79,28 @@ with open("script.js", 'w') as f:
 
 ################################ finish_script.js ################################
 
-
+sha_password  = hashlib.sha256(sum_answers.encode('utf8')).hexdigest()[:8].upper()
 script = """function final_code() {
   var password =
 """
 for i in range(len(data['enigmas'])-1):
     script += f"""    document.getElementById("password{i}").value + \n"""
 script += f"""    document.getElementById("password{len(data['enigmas'])-1}").value;\n"""
-script += """
+script += f"""
   var sha_password = SHA256(
     password.toLowerCase().replace(/ /g, "").replace("'", "")
   );
   var user_code = sha_password.substring(0, 8).toUpperCase();
   if (
     SHA256(user_code) ==
-    "f2ce47ae929e9a00570c6473e571b7cad1865b362db6bbd0ed523347d9cb003a"
-  ) {
+    "{hashlib.sha256(sha_password.encode('utf8')).hexdigest()}"
+  ) {{
     document.getElementById("finish-code").innerHTML =
       'Finish code: <span id="code">' + user_code + "</span>";
-  } else {
+  }} else {{
     document.getElementById("finish-code").innerHTML = "";
-  }
-}
+  }}
+}}
 """
 
 
